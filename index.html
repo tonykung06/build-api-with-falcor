@@ -28,8 +28,14 @@
       }
     });
 
-    model.getValue("todoLists[0].todos[0].name").then(function(value) {
-      document.write(value);
+    model.getValue('todoLists[0].todos[0].name').then(function(value) {
+      console.log('get specific single value: ', value);
+    });
+    model.get('todoLists[0..1].todos[0].name').then(function(value) {
+      console.log('get range of values: ', value);
+    });
+    model.get('todoLists[0..1].todos[0]["name", "completed"]').then(function(value) {
+      console.log('get multiple node props: ', JSON.stringify(value, null, 2));
     });
   </script>
   </body>
