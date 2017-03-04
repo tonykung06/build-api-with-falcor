@@ -44,5 +44,41 @@
       console.log('see if completed is updated: ', JSON.stringify(value, null, 2));
     });
   </script>
+  <script>
+    var model = new falcor.Model({
+      cache: {
+        todosById: {
+          1234: {
+            id: 1234,
+            name: 'OMG',
+            completed: false
+          },
+          3456: {
+            id: 3456,
+            name: 'Well done',
+            completed: false
+          }
+        },
+        todoLists: [{
+          name: 'Recently Viewed',
+          todos: [
+            falcor.Model.ref('todosById[1234]'),
+            falcor.Model.ref('todosById[3456]')
+          ]
+        }, {
+          name: 'Recently Added',
+          todos: [
+            falcor.Model.ref('todosById[1234]')
+          ]
+        }]
+      }
+    });
+
+    model.setValue('todoLists[0].todos[0].completed', true).then(function() {
+      return model.get('todoLists[0..1].todos[0..1]["name", "completed"]')
+    }).then(function(value) {
+      console.log('see if completed is updated: ', JSON.stringify(value, null, 2));
+    });
+  </script>
   </body>
 </html>
