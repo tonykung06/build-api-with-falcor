@@ -37,6 +37,12 @@
     model.get('todoLists[0..1].todos[0]["name", "completed"]').then(function(value) {
       console.log('get multiple node props: ', JSON.stringify(value, null, 2));
     });
+
+    model.setValue('todoLists[0].todos[0].completed', true).then(function() {
+      return model.get('todoLists[0..1].todos[0]["name", "completed"]')
+    }).then(function(value) {
+      console.log('see if completed is updated: ', JSON.stringify(value, null, 2));
+    });
   </script>
   </body>
 </html>
