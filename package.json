@@ -1,0 +1,25 @@
+{
+  "name": "build-api-with-falcor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tonykung06/build-api-with-falcor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tonykung06/build-api-with-falcor/issues"
+  },
+  "homepage": "https://github.com/tonykung06/build-api-with-falcor#readme",
+  "dependencies": {
+    "express": "^4.15.0",
+    "falcor": "^0.1.17",
+    "falcor-express": "^0.1.4"
+  }
+}

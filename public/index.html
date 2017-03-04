@@ -45,6 +45,7 @@
     });
   </script>
   <script>
+    // using falcor model ref to avoid stale data after data updates
     var model = new falcor.Model({
       cache: {
         todosById: {
@@ -78,6 +79,16 @@
       return model.get('todoLists[0..1].todos[0..1]["name", "completed"]')
     }).then(function(value) {
       console.log('see if completed is updated: ', JSON.stringify(value, null, 2));
+    });
+  </script>
+  <script>
+    // fetching model data from falcor server
+    var model = new falcor.Model({
+      source: new falcor.HttpDataSource('/model.json')
+    });
+
+    model.get('todoLists[0..1].todos[0..1]["name", "completed"]').then(function(value) {
+      console.log('got data from http server: ', JSON.stringify(value, null, 2));
     });
   </script>
   </body>
