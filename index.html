@@ -1,0 +1,36 @@
+<!-- index.html -->
+<html>
+  <head>
+    <!-- Do _not_  rely on this URL in production. Use only during development.  -->
+    <script src="https://netflix.github.io/falcor/build/falcor.browser.js"></script>
+    <!-- For production use. -->
+    <!-- <script src="https://cdn.jsdelivr.net/falcor/{VERSION}/falcor.browser.min.js"></script> -->
+  </head>
+  <body>
+  <script>
+    var model = new falcor.Model({
+      cache: {
+        todoLists: [{
+          name: 'Recently Viewed',
+          todos: [{
+            id: 1234,
+            name: 'OMG',
+            completed: false
+          }]
+        }, {
+          name: 'Recently Added',
+          todos: [{
+            id: 345,
+            name: 'Well done',
+            completed: false
+          }]
+        }]
+      }
+    });
+
+    model.getValue("todoLists[0].todos[0].name").then(function(value) {
+      document.write(value);
+    });
+  </script>
+  </body>
+</html>
